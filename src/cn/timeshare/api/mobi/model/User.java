@@ -17,7 +17,7 @@ public class User extends Model<User> implements Serializable {
     public static final String USERNAME = "username";
     public static final String PASSWORD = "password";
 
-    public User login(String username, String password) {
+    public User getUser(String username, String password) {
 	return dao.findFirst("select * from user where username = ? and password = ? limit 1", username, password);
     }
 

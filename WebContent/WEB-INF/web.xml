@@ -14,7 +14,7 @@
 	</filter-mapping>
 	<filter-mapping>
 		<filter-name>auth</filter-name>
-		<url-pattern>/api/count/*</url-pattern>
+		<url-pattern>/api/monitor/*</url-pattern>
 	</filter-mapping>
 
 	<filter>
@@ -36,7 +36,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>object</servlet-name>
-		<url-pattern>/api/count/object</url-pattern>
+		<url-pattern>/api/monitor/object</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -45,7 +45,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>db</servlet-name>
-		<url-pattern>/api/count/db</url-pattern>
+		<url-pattern>/api/monitor/db</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -54,7 +54,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>file</servlet-name>
-		<url-pattern>/api/count/file</url-pattern>
+		<url-pattern>/api/monitor/file</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -63,7 +63,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>mail</servlet-name>
-		<url-pattern>/api/count/mail</url-pattern>
+		<url-pattern>/api/monitor/mail</url-pattern>
 	</servlet-mapping>
 
 	<session-config>

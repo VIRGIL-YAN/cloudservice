@@ -5,30 +5,30 @@ import java.util.Map;
 
 import cn.timeshare.api.mobi.common.Consts;
 import cn.timeshare.api.mobi.model.User;
-import cn.timeshare.api.mobi.utils.DESUtils;
 
 import com.jfinal.core.Controller;
+import com.sina.sae.cloudservice.Utils;
 
 public class UserController extends Controller {
 
-    private DESUtils desUtils = new DESUtils();
-    
     public void login() {
 	String username = getPara("username");
 	String password = getPara("password");
-	User user = User.dao.login(username, password);
+	User user = User.dao.getUser(username, password);
 
 	Map<String, Object> params = new HashMap<String, Object>();
-	String msg = "";
+	String msg = "登录成功";
 	int error = 0;
 	if (user == null) {
 	    error = 1;
 	    msg = "用户名不存在";
+	} else {
+	    setSessionAttr(user.getStr(User.USERNAME), Utils.calcSignature(user.toJson(), "timeshare"));
+	    params.put(Consts.USER_SESSION, getSessionAttr(user.getStr(User.USERNAME)));
 	}
 	params.put("error", error);
 	params.put("msg", msg);
-	setSessionAttr(user.getStr(User.USERNAME), desUtils.encryptString(user.toJson()));
-	params.put(Consts.USER_SESSION, getSessionAttr(user.getStr(User.USERNAME)));
+
 	setAttrs(params);
 	renderJson();
     }
