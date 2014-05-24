@@ -22,7 +22,7 @@ public class Consts {
     public static final String DEV_USERNAME = "root";
     public static final String DEV_PASSWORD = "root";
     // 云环境上 data source 的配置
-    public static final String SAE_JDBC_URL = "jdbc:mysql://r.rdc.sae.sina.com.cn:3307/"+SaeUserInfo.getAppName();
+    public static final String SAE_JDBC_URL = "jdbc:mysql://r.rdc.sae.sina.com.cn:3307/app_"+SaeUserInfo.getAppName();
     public static final String SAE_USERNAME = SaeUserInfo.getAccessKey();
     public static final String SAE_PASSWORD = SaeUserInfo.getSecretKey();
 
